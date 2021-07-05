@@ -21,11 +21,11 @@ for i, question in enumerate(questions) or i > 11:
 
     if ans == question["correct_answer"]:
         print("correct!!")
-        score =+1
+        score = score + 1
 
 
     else:
         print("wrong")
-
+i + 1
 print(f"your total score out of {i} questions is {score}")
-print("thank you for using this quiz")
+print("thank you for using this quiz") 
