@@ -5,8 +5,8 @@ response = requests.get("https://opentdb.com/api.php?amount=10&category=31&diffi
 # html.unescape(response)
 questions =response.json()["results"]
 
-print('\033[31m'"------------------welcome------------------")
-print('\033[92m'+"""
+print('\033[95m'"--------------------welcome--------------------")
+print('\033[34m'+"""
 This is a quiz about anime,
 there are 10 questions that will need to be answered by you
 these are going to be either True or False
@@ -16,16 +16,21 @@ score = 0
 
 for i, question in enumerate(questions) or i > 11:
 
-    print('\033[94m'f"---------question {i + 1}---------")
+    print('\033[95m'f"-------------------question {i + 1}-------------------")
     ans = input(unescape(question["question"]))
 
     if ans == question["correct_answer"]:
-        print("correct!!")
+        print('\033[32m ' "correct!!")
         score = score + 1
 
+    if ans == question["incorrect_answers"]:
+        print('\033[91m'"wrong")
 
-    else:
-        print("wrong")
+    elif ans != question["incorrect_answers"] and question["correct_answer"]:
+        print("please check spelling")
+
+
 i + 1
 print(f"your total score out of {i} questions is {score}")
 print("thank you for using this quiz") 
+
