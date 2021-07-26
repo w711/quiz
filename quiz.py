@@ -26,8 +26,8 @@ for i, question in enumerate(questions) or i > 11:
     if ans == question["incorrect_answers"]:
         print('\033[91m'"wrong")
 
-    elif ans != question["incorrect_answers"] and question["correct_answer"]:
-        print("please check spelling")
+    if ans != question["incorrect_answers"] and question["correct_answer"]:
+        print("please check spelling")  
 
 
 i + 1
