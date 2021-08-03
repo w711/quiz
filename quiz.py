@@ -16,9 +16,10 @@ score = 0
 
 for i, question in enumerate(questions) or i > 11:
 
+#this tells the question and then gives feedback on there input
     print('\033[95m'f"-------------------question {i + 1}-------------------")
-    ans = input(unescape(question["question"]))
-
+    ans = input(unescape(question["question"])) #this converts some invalid charectors and then prints the full question
+   
     if ans == question["correct_answer"]:
         print('\033[32m ' "correct!!")
         score = score + 1
@@ -26,11 +27,18 @@ for i, question in enumerate(questions) or i > 11:
     if ans == question["incorrect_answers"]:
         print('\033[91m'"wrong")
 
-    if ans != question["incorrect_answers"] and question["correct_answer"]:
-        print("please check spelling")  
+
+#    if ans not in ("True", "False"):
+#        print("invalid response please use True or False")
 
 
+
+
+#gives user final feed back
 i + 1
 print(f"your total score out of {i} questions is {score}")
 print("thank you for using this quiz") 
+
+
+
 
